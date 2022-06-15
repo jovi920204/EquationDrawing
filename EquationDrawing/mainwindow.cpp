@@ -33,10 +33,18 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
+}
 
-    QListWidgetItem *current = ui->listWidget->currentItem();
-    current->setFlags(current->flags() | Qt::ItemIsEditable);
-    ui->listWidget->editItem(current);
-
+void MainWindow::removeItem(const QString &text)
+{
+    qDebug("removeItem func called");
+    for(int i = 0; i < ui->listWidget->count(); i++) {
+        auto item = ui->listWidget->item(i);
+        auto itemWidget = dynamic_cast<Widget*>(ui->listWidget->itemWidget(item));
+        if(itemWidget->getText() == text) {
+            delete item;
+            return;
+        }
+    }
 }
 

@@ -6,6 +6,7 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeItem(const QString &)));
 }
 
 Widget::~Widget()
@@ -13,11 +14,13 @@ Widget::~Widget()
     delete ui;
 }
 
-QString Widget::getText(){
+QString Widget::getText()
+{
     return ui->lineEdit->text();
 }
 
-void Widget::setText(const QString &text){
+void Widget::setText(const QString &text)
+{
     ui->lineEdit->setText(text);
 }
 
@@ -26,19 +29,18 @@ void Widget::on_visibleButton_clicked()
 
 }
 
-
 void Widget::on_deleteButton_clicked()
 {
-
-    delete this;
+    qDebug("deleteButton clicked func called");
+    emit sendRemoveItem(ui->lineEdit->text());
 }
 
-void Widget::setLineEditStatus(bool status){
+void Widget::setLineEditStatus(bool status)
+{
     // status = 1 => lineEdit is Editible
-    if (status == 0){
+    if (status == 0) {
         ui->lineEdit->setReadOnly(true);
-    }
-    else {
+    } else {
         ui->lineEdit->setReadOnly(false);
     }
 }

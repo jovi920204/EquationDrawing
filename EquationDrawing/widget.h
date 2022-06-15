@@ -5,8 +5,9 @@
 #include <QMessageBox>
 
 
-namespace Ui {
-class Widget;
+namespace Ui
+{
+    class Widget;
 }
 
 class Widget : public QWidget
@@ -19,6 +20,9 @@ public:
 
     QString getText();
     void setText(const QString &text);
+
+signals:
+    void sendRemoveItem(const QString &text);
 
 private slots:
     void on_visibleButton_clicked();
