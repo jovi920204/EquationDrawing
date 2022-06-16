@@ -19,43 +19,67 @@ Drawer::~Drawer()
     delete ui;
 }
 
-void Drawer::paintEvent(QPaintEvent *event){
+void Drawer::changeRange(int xmax,int xmin, int ymax, int ymin){
+    xMax = xmax, xMin = xmin, yMax = ymax, yMin = ymin;
+}
 
+void Drawer::paintEvent(QPaintEvent *event){
+    qDebug() << "paintEvent!!";
     QPainter painter(this);
     int W = width();
     int H = height();
-    int side = qMin(W,H);
+    int side = qMin(xMax-xMin,yMax-yMin);
     int x_Pro = 600/(xMax-xMin);
     int y_Pro = 600/(yMax-yMin);
-    int x_max = xMax*x_Pro;
-    int x_min = xMin*x_Pro;
-    int y_max = yMax*y_Pro;
-    int y_min = yMin*y_Pro;
-
 
     QRect rect(0, 0, 600, 600);
     painter.drawRect(rect);
 
     painter.setViewport(rect);
-    painter.setWindow(x_min,y_max,x_max*2,y_min*2);
-
+    painter.setWindow(xMin,yMax,xMax*2,yMin*2);
 
     int interval = intervalNumber;
 
     // draw x and y axis
-    painter.setPen(QPen(Qt::black, 5));
-    painter.drawLine(x_min,0,x_max,0);
-    painter.drawLine(0,y_min,0,y_max);
+    painter.setPen(QPen(Qt::black, 1/x_Pro+(0.1)*xMax/10));
+    painter.drawLine(xMin,0,xMax,0);
+    painter.drawLine(0,yMin,0,yMax);
     // draw grid => default interval is 10 block;
-    painter.setPen(QPen(Qt::black, 1));
-    for (int x=x_min;x<=x_max;x+=(side/interval)){
-        painter.drawLine(x,y_min,x,y_max);
+    painter.setPen(QPen(Qt::black,1/x_Pro));
+    for (double x=xMin;x<=xMax;x+=(side/interval)){
+        painter.drawLine(x,yMin,x,yMax);
     }
-    for (int y=y_min;y<=y_max;y+=(side/interval)){
-        painter.drawLine(x_min,y,x_max,y);
+    for (double y=yMin;y<=yMax;y+=(side/interval)){
+        painter.drawLine(xMin,y,xMax,y);
     }
 
     //draw equation;
+    painter.setPen(QPen(Qt::blue,1/x_Pro+(0.1)*xMax/10));
+    double preX = xMin ,preY = qSin(xMin);
+    double dot = (xMax-xMin)/500.f;
+
+    for (double x = xMin + dot; x <= xMax ;x += dot){
+        painter.drawLine(QPointF(preX,preY),QPointF(x,qSin(x)));
+        preX = x;
+        preY = qSin(x);
+    }
+
+    std::vector<double> xdot;
+    std::vector<double> ydot;
+    std::ifstream file("C:/Users/jovi9/Documents/code/EquationDrawing/EquationDrawing/EquationDrawing/output/output2.txt");
+    double x, y;
+    double prex, prey;
+    while(file.good()){
+        file >> x >> y;
+        xdot.push_back(x);
+        ydot.push_back(y);
+    }
+    prex = xdot[0], prey = ydot[0];
+    for (int i= 1; i < xdot.size(); i++){
+        if (prey == ydot[i]) continue;
+        painter.drawLine(QPointF(prex, prey),QPointF(xdot[i],ydot[i]));
+        prex = xdot[i], prey = ydot[i];
+    }
 
 }
 

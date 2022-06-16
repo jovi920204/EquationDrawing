@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/equation">
+        <file>output/output.txt</file>
+    </qresource>
+</RCC>

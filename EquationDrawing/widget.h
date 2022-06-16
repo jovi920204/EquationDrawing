@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QMessageBox>
+#include <stdlib.h>
+#include <time.h>
 
 
 namespace Ui
@@ -19,7 +21,9 @@ public:
     ~Widget();
 
     QString getText();
+    QColor getColor();
     void setText(const QString &text);
+    void setColor();
 
 signals:
     void sendRemoveItem(const QString &text);
@@ -33,6 +37,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    QVector<QColor> colorVec;
 };
 
 #endif // WIDGET_H

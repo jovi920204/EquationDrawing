@@ -24,12 +24,14 @@ void MainWindow::on_addButton_clicked()
 {
     auto item = new QListWidgetItem();
     Widget *widget = new Widget(this);
-    widget->setText(QString::number(ui->listWidget->count()));
+//    widget->setText(QString::number(ui->listWidget->count()));
 
     item->setSizeHint(widget->sizeHint());
-
+    widget->setColor();
+    widget->setText("");
     ui->listWidget->addItem(item);
     ui->listWidget->setItemWidget(item, widget);
+
 }
 
 

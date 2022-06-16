@@ -11,8 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -22,60 +20,37 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QHBoxLayout *horizontalLayout_3;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *colorLabel;
-    QLineEdit *lineEdit;
-    QHBoxLayout *horizontalLayout;
     QPushButton *visibleButton;
+    QLineEdit *lineEdit;
     QPushButton *deleteButton;
+    QWidget *colorWidget;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(474, 46);
+        Widget->resize(363, 36);
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Widget->sizePolicy().hasHeightForWidth());
         Widget->setSizePolicy(sizePolicy);
-        horizontalLayout_3 = new QHBoxLayout(Widget);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        colorLabel = new QLabel(Widget);
-        colorLabel->setObjectName(QString::fromUtf8("colorLabel"));
-
-        horizontalLayout_2->addWidget(colorLabel);
-
-        lineEdit = new QLineEdit(Widget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-
-        horizontalLayout_2->addWidget(lineEdit);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         visibleButton = new QPushButton(Widget);
         visibleButton->setObjectName(QString::fromUtf8("visibleButton"));
+        visibleButton->setGeometry(QRect(240, 0, 51, 16));
         sizePolicy.setHeightForWidth(visibleButton->sizePolicy().hasHeightForWidth());
         visibleButton->setSizePolicy(sizePolicy);
-
-        horizontalLayout->addWidget(visibleButton);
-
+        lineEdit = new QLineEdit(Widget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(40, 0, 201, 16));
         deleteButton = new QPushButton(Widget);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+        deleteButton->setGeometry(QRect(290, 0, 51, 16));
         sizePolicy.setHeightForWidth(deleteButton->sizePolicy().hasHeightForWidth());
         deleteButton->setSizePolicy(sizePolicy);
-
-        horizontalLayout->addWidget(deleteButton);
-
-
-        horizontalLayout_2->addLayout(horizontalLayout);
-
-
-        horizontalLayout_3->addLayout(horizontalLayout_2);
-
+        colorWidget = new QWidget(Widget);
+        colorWidget->setObjectName(QString::fromUtf8("colorWidget"));
+        colorWidget->setGeometry(QRect(0, 0, 31, 16));
 
         retranslateUi(Widget);
 
@@ -85,7 +60,6 @@ public:
     void retranslateUi(QWidget *Widget)
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Form", nullptr));
-        colorLabel->setText(QString());
         visibleButton->setText(QCoreApplication::translate("Widget", "visible", nullptr));
         deleteButton->setText(QCoreApplication::translate("Widget", "delete", nullptr));
     } // retranslateUi
