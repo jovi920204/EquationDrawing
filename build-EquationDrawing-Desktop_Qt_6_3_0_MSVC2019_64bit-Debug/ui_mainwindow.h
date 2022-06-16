@@ -25,10 +25,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *addButton;
     QListWidget *listWidget;
+    QWidget *ViewerWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,29 +37,33 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1148, 623);
+        MainWindow->resize(950, 649);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(800, 10, 341, 561));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(600, 0, 341, 601));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        addButton = new QPushButton(widget);
+        addButton = new QPushButton(layoutWidget);
         addButton->setObjectName(QString::fromUtf8("addButton"));
 
         verticalLayout->addWidget(addButton);
 
-        listWidget = new QListWidget(widget);
+        listWidget = new QListWidget(layoutWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
 
         verticalLayout->addWidget(listWidget);
 
+        ViewerWidget = new QWidget(centralwidget);
+        ViewerWidget->setObjectName(QString::fromUtf8("ViewerWidget"));
+        ViewerWidget->setEnabled(true);
+        ViewerWidget->setGeometry(QRect(0, 0, 600, 600));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1148, 21));
+        menubar->setGeometry(QRect(0, 0, 950, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

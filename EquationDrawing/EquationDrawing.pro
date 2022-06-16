@@ -9,15 +9,18 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    drawer.cpp \
     main.cpp \
     mainwindow.cpp \
     widget.cpp
 
 HEADERS += \
+    drawer.h \
     mainwindow.h \
     widget.h
 
 FORMS += \
+    drawer.ui \
     mainwindow.ui \
     widget.ui
 

@@ -6,6 +6,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    rec = 0;
+
+    ui->ViewerWidget = new Drawer(this);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -16,9 +22,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_addButton_clicked()
 {
-//    QLineEdit *label = new QLineEdit;
-//    label->setText(QString::number(ui->listWidget->count()));
-//    ui->listWidget->addItem(label->text());
     auto item = new QListWidgetItem();
     Widget *widget = new Widget(this);
     widget->setText(QString::number(ui->listWidget->count()));
@@ -27,7 +30,6 @@ void MainWindow::on_addButton_clicked()
 
     ui->listWidget->addItem(item);
     ui->listWidget->setItemWidget(item, widget);
-
 }
 
 
@@ -47,4 +49,3 @@ void MainWindow::removeItem(const QString &text)
         }
     }
 }
-

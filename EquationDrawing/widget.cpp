@@ -44,4 +44,3 @@ void Widget::setLineEditStatus(bool status)
         ui->lineEdit->setReadOnly(false);
     }
 }
-
