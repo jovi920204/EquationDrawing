@@ -60,8 +60,8 @@ public:
     void retranslateUi(QWidget *Widget)
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Form", nullptr));
-        visibleButton->setText(QCoreApplication::translate("Widget", "visible", nullptr));
-        deleteButton->setText(QCoreApplication::translate("Widget", "delete", nullptr));
+        visibleButton->setText(QString());
+        deleteButton->setText(QString());
     } // retranslateUi
 
 };

@@ -9,8 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     rec = 0;
 
-    ui->ViewerWidget = new Drawer(this);
+    ui->DrawerWidget = new Drawer(this);
 
+    connect(this, SIGNAL(sendAddEquation(Widget *)), ui->DrawerWidget, SLOT(receiveAddEquation(Widget *)));
 
 }
 
@@ -31,7 +32,7 @@ void MainWindow::on_addButton_clicked()
     widget->setText("");
     ui->listWidget->addItem(item);
     ui->listWidget->setItemWidget(item, widget);
-
+    emit sendAddEquation(widget);
 }
 
 

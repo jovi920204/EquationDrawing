@@ -26,7 +26,7 @@ public:
     int rec;
 
 signals:
-
+    void sendAddEquation(Widget *);
 private slots:
     void on_addButton_clicked();
 

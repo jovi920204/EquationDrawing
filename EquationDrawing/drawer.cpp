@@ -23,6 +23,15 @@ void Drawer::changeRange(int xmax,int xmin, int ymax, int ymin){
     xMax = xmax, xMin = xmin, yMax = ymax, yMin = ymin;
 }
 
+void Drawer::addEquation(Widget *w){
+    qDebug() << "Add equation";
+    equationList.append(w);
+}
+
+void Drawer::receiveAddEquation(Widget *w){
+    addEquation(w);
+}
+
 void Drawer::paintEvent(QPaintEvent *event){
     qDebug() << "paintEvent!!";
     QPainter painter(this);
@@ -81,6 +90,10 @@ void Drawer::paintEvent(QPaintEvent *event){
         prex = xdot[i], prey = ydot[i];
     }
 
+    // 一個for迴圈跑過所有的equationList
+    // if (widget的isVisible() == true)
+    // 再畫出來
+    // 畫的步驟是 -> 帶入範圍 -> 生成出檔案 -> vector存檔案的x,y -> 跑vector中所有的點{ painter.drawLine }
 }
 
 

@@ -36,7 +36,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="ViewerWidget" native="true">
+   <widget class="QWidget" name="DrawerWidget" native="true">
     <property name="enabled">
      <bool>true</bool>
     </property>

@@ -29,7 +29,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *addButton;
     QListWidget *listWidget;
-    QWidget *ViewerWidget;
+    QWidget *DrawerWidget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -56,10 +56,10 @@ public:
 
         verticalLayout->addWidget(listWidget);
 
-        ViewerWidget = new QWidget(centralwidget);
-        ViewerWidget->setObjectName(QString::fromUtf8("ViewerWidget"));
-        ViewerWidget->setEnabled(true);
-        ViewerWidget->setGeometry(QRect(0, 0, 600, 600));
+        DrawerWidget = new QWidget(centralwidget);
+        DrawerWidget->setObjectName(QString::fromUtf8("DrawerWidget"));
+        DrawerWidget->setEnabled(true);
+        DrawerWidget->setGeometry(QRect(0, 0, 600, 600));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

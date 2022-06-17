@@ -8,6 +8,8 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeItem(const QString &)));
     srand(time(NULL));
+    setVisibleStatus(true);
+    ui->deleteButton->setIcon(QIcon(":/img/img/delete.png"));
 }
 
 Widget::~Widget()
@@ -26,6 +28,16 @@ QColor Widget::getColor(){
 void Widget::setText(const QString &text)
 {
     ui->lineEdit->setText(text);
+}
+
+void Widget::setVisibleStatus(bool status){
+    visible = status;
+    if (status == 1){
+        ui->visibleButton->setIcon(QIcon(":/img/img/eye_visible.png"));
+    }
+    else{
+        ui->visibleButton->setIcon(QIcon(":/img/img/eye_slash.png"));
+    }
 }
 
 void Widget::setColor(){
@@ -48,7 +60,14 @@ void Widget::setColor(){
 }
 void Widget::on_visibleButton_clicked()
 {
-
+    if (visible == 1){
+        visible = 0;
+        ui->visibleButton->setIcon(QIcon(":/img/img/eye_slash.png"));
+    }
+    else{
+        visible = 1;
+        ui->visibleButton->setIcon(QIcon(":/img/img/eye_visible.png"));
+    }
 }
 
 void Widget::on_deleteButton_clicked()

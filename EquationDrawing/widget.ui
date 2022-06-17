@@ -35,7 +35,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string>visible</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
@@ -64,7 +64,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string>delete</string>
+    <string/>
    </property>
   </widget>
   <widget class="QWidget" name="colorWidget" native="true">
