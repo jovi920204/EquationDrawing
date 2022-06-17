@@ -37,12 +37,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(957, 649);
+        MainWindow->resize(957, 651);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(610, 0, 341, 601));
+        layoutWidget->setGeometry(QRect(610, 0, 331, 601));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);

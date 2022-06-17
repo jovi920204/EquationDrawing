@@ -1,3 +1,8 @@
+//***********************************************************************
+//  this MainWindow class is control all the widget, and caonnect to the user's action,
+//  createButton and listWidget is letting user to add and edit equation.
+//***********************************************************************
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -15,7 +20,7 @@ namespace Ui
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class MainWindow: public QMainWindow
 {
     Q_OBJECT
 
@@ -27,6 +32,7 @@ public:
 
 signals:
     void sendAddEquation(Widget *);
+    void sendDeleteEquation(Widget *);
 private slots:
     void on_addButton_clicked();
 

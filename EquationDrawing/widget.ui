@@ -22,9 +22,9 @@
   <widget class="QPushButton" name="visibleButton">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>270</x>
      <y>0</y>
-     <width>51</width>
+     <width>21</width>
      <height>16</height>
     </rect>
    </property>
@@ -41,9 +41,9 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>0</y>
-     <width>201</width>
+     <width>251</width>
      <height>16</height>
     </rect>
    </property>
@@ -53,7 +53,7 @@
     <rect>
      <x>290</x>
      <y>0</y>
-     <width>51</width>
+     <width>21</width>
      <height>16</height>
     </rect>
    </property>
@@ -72,7 +72,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>31</width>
+     <width>21</width>
      <height>16</height>
     </rect>
    </property>

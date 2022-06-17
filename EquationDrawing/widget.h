@@ -1,3 +1,7 @@
+//***********************************************************************
+//  this Widget class is the widget, which can input equation and visible or delete it,
+//***********************************************************************
+
 #ifndef WIDGET_H
 #define WIDGET_H
 

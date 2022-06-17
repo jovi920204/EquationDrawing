@@ -7,9 +7,10 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeItem(const QString &)));
-    srand(time(NULL));
-    setVisibleStatus(true);
-    ui->deleteButton->setIcon(QIcon(":/img/img/delete.png"));
+
+    srand(time(NULL)); // randomly changing colorWidget's color
+    setVisibleStatus(true); // default all of equations are visible
+    ui->deleteButton->setIcon(QIcon(":/img/img/delete.png")); // set deleteButton's icon
 }
 
 Widget::~Widget()

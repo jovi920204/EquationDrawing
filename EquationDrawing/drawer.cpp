@@ -1,5 +1,6 @@
 #include "drawer.h"
 #include "ui_drawer.h"
+#include <QGraphicsRectItem>>
 
 Drawer::Drawer(QWidget *parent) :
     QWidget(parent),
@@ -12,6 +13,7 @@ Drawer::Drawer(QWidget *parent) :
     xMin = -10;
     yMax = 10;
     yMin = -10;
+
 }
 
 Drawer::~Drawer()
@@ -30,6 +32,12 @@ void Drawer::addEquation(Widget *w){
 
 void Drawer::receiveAddEquation(Widget *w){
     addEquation(w);
+}
+
+void Drawer::receiveDeleteEquation(Widget *w){
+    auto iter = std::find(equationList.begin(), equationList.end(), w);
+    equationList.erase(iter);
+    qDebug() << "deleted from equationList";
 }
 
 void Drawer::paintEvent(QPaintEvent *event){

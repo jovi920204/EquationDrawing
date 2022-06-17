@@ -37,20 +37,20 @@ public:
         Widget->setSizePolicy(sizePolicy);
         visibleButton = new QPushButton(Widget);
         visibleButton->setObjectName(QString::fromUtf8("visibleButton"));
-        visibleButton->setGeometry(QRect(240, 0, 51, 16));
+        visibleButton->setGeometry(QRect(270, 0, 21, 16));
         sizePolicy.setHeightForWidth(visibleButton->sizePolicy().hasHeightForWidth());
         visibleButton->setSizePolicy(sizePolicy);
         lineEdit = new QLineEdit(Widget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(40, 0, 201, 16));
+        lineEdit->setGeometry(QRect(20, 0, 251, 16));
         deleteButton = new QPushButton(Widget);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
-        deleteButton->setGeometry(QRect(290, 0, 51, 16));
+        deleteButton->setGeometry(QRect(290, 0, 21, 16));
         sizePolicy.setHeightForWidth(deleteButton->sizePolicy().hasHeightForWidth());
         deleteButton->setSizePolicy(sizePolicy);
         colorWidget = new QWidget(Widget);
         colorWidget->setObjectName(QString::fromUtf8("colorWidget"));
-        colorWidget->setGeometry(QRect(0, 0, 31, 16));
+        colorWidget->setGeometry(QRect(0, 0, 21, 16));
 
         retranslateUi(Widget);
 

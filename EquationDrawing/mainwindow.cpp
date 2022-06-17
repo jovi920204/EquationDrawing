@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->DrawerWidget = new Drawer(this);
 
     connect(this, SIGNAL(sendAddEquation(Widget *)), ui->DrawerWidget, SLOT(receiveAddEquation(Widget *)));
-
+    connect(this, SIGNAL(sendDeleteEquation(Widget *)), ui->DrawerWidget, SLOT(receiveDeleteEquation(Widget *)));
 }
 
 MainWindow::~MainWindow()
@@ -47,8 +47,10 @@ void MainWindow::removeItem(const QString &text)
         auto item = ui->listWidget->item(i);
         auto itemWidget = dynamic_cast<Widget*>(ui->listWidget->itemWidget(item));
         if(itemWidget->getText() == text) {
+            emit sendDeleteEquation(itemWidget);
             delete item;
             return;
         }
     }
+
 }
