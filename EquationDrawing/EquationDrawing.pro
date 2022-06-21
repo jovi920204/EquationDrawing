@@ -10,12 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     drawer.cpp \
+    equation.cpp \
     main.cpp \
     mainwindow.cpp \
     widget.cpp
 
 HEADERS += \
     drawer.h \
+    equation.h \
     mainwindow.h \
     widget.h
 

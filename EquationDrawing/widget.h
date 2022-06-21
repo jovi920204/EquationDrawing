@@ -29,6 +29,8 @@ public:
     void setText(const QString &text);
     void setColor();
     void setVisibleStatus(bool status);
+    bool isVisible(){ return visible; } // 0 is can't see, 1 is can see
+    void setError(bool e);
 signals:
     void sendRemoveItem(const QString &text);
 
@@ -39,12 +41,12 @@ private slots:
 
     void setLineEditStatus(bool status); // 0 is readOnly 1 is editible
 
-    bool isVisible(){ return visible; } // 0 is can't see, 1 is can see
+
 private:
     Ui::Widget *ui;
     QVector<QColor> colorVec;
     bool visible; // 0 is can't see, 1 is can see
-
+    QColor equationColor;
 };
 
 #endif // WIDGET_H

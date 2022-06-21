@@ -16,10 +16,12 @@
 #include <QList>
 #include <QMouseEvent>
 #include <QWheelEvent>
+#include <QPushButton>
 
 #include <map>
 #include <vector>
 #include "widget.h"
+#include "equation.h"
 
 
 namespace Ui {
@@ -44,6 +46,9 @@ public:
     void zoomIn();
 
     void zoomOut();
+
+    inline void SetMathCoordinate(Drawer* dialog,QPainter* painter);
+    inline void ResetDefaultCoordinate(Drawer* dialog,QPainter* painter);
 protected:
     void paintEvent(QPaintEvent *);
     void mousePressEvent(QMouseEvent *event);
@@ -58,12 +63,15 @@ private slots:
 private:
     Ui::Drawer *ui;
     double xMax,xMin,yMax,yMin;
+    double xRange, yRange;
+
     QList<Widget*> equationList;
     // 當CreateButton新增時, 用成員函式新增Widget物件到equationLst裡面
     // visible或是delete也是調用成員函式完成狀態更新或是刪除
     std::map<QString,QString> table; // variable table
     QPointF lastMousePos; // mouse current position
     bool pressflag = false;
+
 };
 
 #endif // DRAWER_H

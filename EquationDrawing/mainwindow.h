@@ -33,12 +33,13 @@ public:
 signals:
     void sendAddEquation(Widget *);
     void sendDeleteEquation(Widget *);
+
 private slots:
     void on_addButton_clicked();
 
-    void on_listWidget_doubleClicked(const QModelIndex &index);
-
     void removeItem(const QString &text);
+
+    void on_drawButton_clicked();
 
 private:
     Ui::MainWindow *ui;

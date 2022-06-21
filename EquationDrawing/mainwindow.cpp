@@ -35,11 +35,6 @@ void MainWindow::on_addButton_clicked()
     emit sendAddEquation(widget);
 }
 
-
-void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
-{
-}
-
 void MainWindow::removeItem(const QString &text)
 {
     qDebug("removeItem func called");
@@ -54,3 +49,10 @@ void MainWindow::removeItem(const QString &text)
     }
 
 }
+
+void MainWindow::on_drawButton_clicked()
+{
+    // update the equationList and update the Drawer widget
+    ui->DrawerWidget->update();
+}
+

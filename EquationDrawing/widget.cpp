@@ -23,7 +23,7 @@ QString Widget::getText()
     return ui->lineEdit->text();
 }
 QColor Widget::getColor(){
-    return ui->colorWidget->styleSheet();
+    return equationColor;
 }
 
 void Widget::setText(const QString &text)
@@ -58,14 +58,15 @@ void Widget::setColor(){
     QString b = QString::number(qc.blue());
     QString color = "background-color: rgb(" + r + ", " + g + ", " + b +");";
     ui->colorWidget->setStyleSheet(color);
+    equationColor = c;
 }
 void Widget::on_visibleButton_clicked()
 {
-    if (visible == 1){
+    if (visible == 1) {
         visible = 0;
         ui->visibleButton->setIcon(QIcon(":/img/img/eye_slash.png"));
     }
-    else{
+    else {
         visible = 1;
         ui->visibleButton->setIcon(QIcon(":/img/img/eye_visible.png"));
     }
@@ -86,3 +87,15 @@ void Widget::setLineEditStatus(bool status)
         ui->lineEdit->setReadOnly(false);
     }
 }
+void Widget::setError(bool e){
+    if (e == 1) {
+        ui->colorLabel->setText(tr("E"));
+        ui->colorLabel->setAlignment(Qt::AlignCenter);
+    }
+    else {
+        ui->colorLabel->setText(tr(""));
+        ui->colorLabel->setAlignment(Qt::AlignCenter);
+    }
+}
+
+
